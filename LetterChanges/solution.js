@@ -14,15 +14,15 @@ function LetterChanges(str) {
 	 str = str.toLowerCase();
   for (let i=0; i<len; i++) {
     if (str[i].match(/[a-z]/i)) {
-	    if (str.charCodeAt(i) === 122) newLetter = changeVowel('a');
-		  else {
-			  letter = getAscii(str[i]);
-			  newLetter += changeVowel(getChar(letter));
-			}
-	  }
-		else newLetter += str[i];
-	}
-	return newLetter;
+      if (str.charCodeAt(i) === 122) newLetter = changeVowel('a');
+      else {
+	letter = getAscii(str[i]);
+	newLetter += changeVowel(getChar(letter));
+      }
+    }
+    else newLetter += str[i];
+  }
+  return newLetter;
 }
 
 /**
@@ -50,11 +50,11 @@ function getChar(word) {
  */
 function changeVowel(word) {
   let vowels = 'aeiou',
-	  len = vowels.length;
+    len = vowels.length;
   for (let i=0; i<len; i++) {
-	  if (word === vowels[i]) {
-		  return word.toUpperCase();
-	  }
+    if (word === vowels[i]) {
+      return word.toUpperCase();
+    }
   }
   return word;
 }
