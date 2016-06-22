@@ -9,18 +9,17 @@
  */
 function LetterChanges(str) {
   let newLetter = '',
-		letter = '',
-		len = str.length;
-		str = str.toLowerCase();
-	for (let i=0; i<len; i++) {
-		if (str[i].match(/[a-z]/i)) {
-			if (str.charCodeAt(i) === 122) newLetter = changeVowel('a');
-			else {
-				letter = getAscii(str[i]);
-				newLetter += changeVowel(getChar(letter));
-				console.log(newLetter, letter);
+	 letter = '',
+	 len = str.length;
+	 str = str.toLowerCase();
+  for (let i=0; i<len; i++) {
+    if (str[i].match(/[a-z]/i)) {
+	    if (str.charCodeAt(i) === 122) newLetter = changeVowel('a');
+		  else {
+			  letter = getAscii(str[i]);
+			  newLetter += changeVowel(getChar(letter));
 			}
-		}
+	  }
 		else newLetter += str[i];
 	}
 	return newLetter;
@@ -32,7 +31,7 @@ function LetterChanges(str) {
  * @return {[number]}      [ascii value of the word]
  */
 function getAscii(word) {
-	return word.charCodeAt(0) + 1;
+  return word.charCodeAt(0) + 1;
 }
 
 /**
@@ -41,7 +40,7 @@ function getAscii(word) {
  * @return {[string]}      [alphabet corresponding to the ascii code passed]
  */
 function getChar(word) {
-	return String.fromCharCode(word);
+  return String.fromCharCode(word);
 }
 
 /**
@@ -50,12 +49,12 @@ function getChar(word) {
  * @return {[string]}      [if vowel, an uppercase vowel, if not, the word]
  */
 function changeVowel(word) {
-	let vowels = 'aeiou',
-		len = vowels.length;
-	for (let i=0; i<len; i++) {
-		if (word === vowels[i]) {
-			return word.toUpperCase();
-		}
-	}
-	return word;
+  let vowels = 'aeiou',
+	  len = vowels.length;
+  for (let i=0; i<len; i++) {
+	  if (word === vowels[i]) {
+		  return word.toUpperCase();
+	  }
+  }
+  return word;
 }
